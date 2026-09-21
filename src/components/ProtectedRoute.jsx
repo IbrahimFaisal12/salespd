@@ -27,7 +27,34 @@ export default function ProtectedRoute({ children }) {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        style={{
+          minHeight: '100vh',
+          backgroundColor: '#070d18',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '16px',
+          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        }}
+      >
+        <div
+          style={{
+            width: '44px',
+            height: '44px',
+            borderRadius: '50%',
+            border: '3px solid #1b2f56',
+            borderTopColor: '#38bdf8',
+            animation: 'spin 1s linear infinite',
+          }}
+        />
+        <span style={{ color: '#94a3b8', fontSize: '14px', letterSpacing: '0.3px' }}>
+          Verifying Session...
+        </span>
+      </div>
+    );
   }
 
   if (!session) {
